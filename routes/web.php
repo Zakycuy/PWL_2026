@@ -65,3 +65,13 @@ use App\Http\Controllers\PageController;
 // Route::get('/about', [PageController::class, 'about']);
 // Route::get('/articles/{id}', [PageController::class, 'articles']);
 
+// Route::get('/greeting', function () {
+// 	return view('hello', ['name' => 'Andi']);
+// });
+
+// Route::get('/greeting', function () {
+// 	return view('blog.hello', ['name' => 'Andi']);
+// });
+
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
+
