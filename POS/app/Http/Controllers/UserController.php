@@ -10,6 +10,27 @@ class UserController extends Controller
 {
     public function index()
     {
+        $userCount = UserModel::where('level_id', 2)->count();
+        $userData  = UserModel::where('level_id', 2)->get();
+
+        return view('user', [
+            'count' => $userCount,
+            'data'  => $userData
+        ]);
+
+        // $user = UserModel::where('level_id', 2)->count();
+        // return view('user', ['data' => $user]);
+
+        // $user = UserModel::where('level_id', 2)->count();
+        // dd($user);
+        // return view('user', ['data' => $user]);
+
+        // $user = UserModel::findOrFail(1);
+        // return view('user', ['data' => $user]);
+
+        // $user = UserModel::where('username', 'manager9')->firstOrFail();
+        // return view('user', ['data' => $user]);
+
         // $data = [
         //     'level_id' => 2,
         //     'username' => 'manager_dua',
@@ -18,11 +39,11 @@ class UserController extends Controller
         // ];
         // UserModel::create($data);
 
-        $user = UserMOdel::findOr(20, ['username', 'nama'], function () {
-            abort(404);
-        });
+        // $user = UserMOdel::findOr(20, ['username', 'nama'], function () {
+        //     abort(404);
+        // });
 
-        return view('user', ['data' => $user]);
+        // return view('user', ['data' => $user]);
         
         // $user = UserModel::where('level_id', '>', 3)->firstOr(function () {
 
